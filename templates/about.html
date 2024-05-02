@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block title %}About{% endblock title %}
+{% block content %}
+
+<style>
+  .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .card {
+    max-width: 400px; /* Adjust as needed */
+    width: 100%;
+    border: 1px solid #ccc; /* Add border for better visibility */
+    border-radius: 10px; /* Add border radius for rounded corners */
+    overflow: hidden; /* Hide overflowing content */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add box shadow for elevation */
+    transition: box-shadow 0.3s ease-in-out; /* Add transition effect */
+  }
+
+  .card:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Change box shadow on hover */
+  }
+
+  .card-img-top {
+    max-width: 100%;
+    height: auto;
+  }
+
+  @media (max-width: 767px) {
+    .card {
+      max-width: calc(100% - 40px); /* Adjust as needed */
+      margin: 0 20px 20px; /* Adjust as needed */
+    }
+  }
+</style>
+
+<center>
+  <h2 class="pt-5" style="color: red;"><u>About Us</u></h2>
+</center>
+<center>
+  <nav class="navbar navbar-light bg-light">
+    <div class="mx-auto mt-3" style="width: 200px;">
+      CO-FOUNDERS OF AS LTD.
+    </div>
+  </nav>
+</center>
+
+<div class="card-container">
+  {% for founder in founderdata %}
+  <div class="card mb-5 mt-5">
+    <center>
+      <img class="card-img-top" src="{{ founder.fimage }}" alt="Card image cap" style="width: 150px; border-radius: 50%;">
+    </center>
+    <div class="card-body">
+      <center><h5 class="card-title">{{ founder.fname }}</h5></center>
+      <p class="card-text">{{ founder.fdescription }}</p>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+{% endblock %}

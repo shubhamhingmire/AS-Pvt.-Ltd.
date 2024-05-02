@@ -1,0 +1,22 @@
+
+{% extends "base.html" %}
+
+{% block title%}Jobs{%endblock title%}
+{% block content%}
+<center><h2 class="pt-5" style="color:red"><u>JOB OPENINGS</u></h2></center>
+<center>
+    {% for job in jobdata %}
+    <div class="card mt-5 mb-5" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">JOB ROLE - {{job.role}}</h5>
+      <h6 class="card-subtitle mb-2 text-muted">SALARY - {{job.salary}}</h6>
+      <h6 class="card-subtitle mb-2 text-muted">Required Experiance - {{job.experiance}}</h6>
+      <p class="card-text">Required Skills - {{job.Rskill}}</p>
+      <p class="card-text">Job Location - {{job.location}}</p>
+      <a href="apply"><buttom class="btn btn-primary">APPLY</button></a>
+    </div>
+  </div>
+  {%endfor%}
+</center>
+
+{%endblock%}
